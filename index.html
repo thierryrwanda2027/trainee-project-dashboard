@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber-Secured Industrial IoT Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts for Terminal aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="top-bar">
+            <div class="logo">
+                <span class="sys-status">SYS.ONLINE</span>
+                <h1>RULIBA // HEAVY MACHINERY MONITORING</h1>
+            </div>
+            <div class="system-time" id="clock">00:00:00</div>
+        </header>
+
+        <!-- Main Grid -->
+        <main class="grid-layout">
+            
+            <!-- Sensor Widget 1: Extruder Temp -->
+            <div class="widget sensor-widget" id="widget-temp">
+                <div class="widget-header">
+                    <h2>EXTRUDER_TEMP</h2>
+                    <span class="status-indicator" id="status-temp">NORMAL</span>
+                </div>
+                <div class="sensor-value">
+                    <span id="val-temp">--</span><span class="unit">°C</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="bar-temp"></div>
+                </div>
+            </div>
+
+            <!-- Sensor Widget 2: Conveyor RPM -->
+            <div class="widget sensor-widget" id="widget-rpm">
+                <div class="widget-header">
+                    <h2>CONVEYOR_RPM</h2>
+                    <span class="status-indicator" id="status-rpm">NORMAL</span>
+                </div>
+                <div class="sensor-value">
+                    <span id="val-rpm">--</span><span class="unit">RPM</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="bar-rpm"></div>
+                </div>
+            </div>
+
+            <!-- Sensor Widget 3: Hydraulic Pressure -->
+            <div class="widget sensor-widget" id="widget-pressure">
+                <div class="widget-header">
+                    <h2>HYDRAULIC_PRESSURE</h2>
+                    <span class="status-indicator" id="status-pressure">NORMAL</span>
+                </div>
+                <div class="sensor-value">
+                    <span id="val-pressure">--</span><span class="unit">BAR</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="bar-pressure"></div>
+                </div>
+            </div>
+
+            <!-- System Overview / Controls -->
+            <div class="widget control-panel">
+                <div class="widget-header">
+                    <h2>SYSTEM_CONTROL</h2>
+                </div>
+                <div class="controls-content">
+                    <button id="btn-emergency-stop" class="btn-danger">INITIATE EMERGENCY STOP</button>
+                    <div class="system-stats">
+                        <p>Uptime: <span id="val-uptime">99.9%</span></p>
+                        <p>Active Nodes: <span>3/3</span></p>
+                        <p>Network Load: <span id="val-network">42%</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Log Terminal -->
+            <div class="widget security-terminal">
+                <div class="widget-header terminal-header">
+                    <h2>SECURITY_LOG // ANOMALY_DETECTION</h2>
+                    <div class="terminal-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="terminal-body" id="log-output">
+                    <!-- Logs will be injected here via JS -->
+                    <div class="log-entry system">> SecD daemon initialized. Monitoring incoming traffic...</div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
